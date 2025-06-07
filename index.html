@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thi đua lớp học</title>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log("SW registered", reg))
+        .catch(err => console.error("SW failed", err));
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 16px;
+      background: linear-gradient(to bottom right, #d0f0c0, #f8f8f8);
+      max-width: 800px;
+      margin: auto;
+    }
+    h2, h4 { text-align: center; color: #333; }
+    label { font-weight: bold; }
+    select, input[type="date"], input[type="text"], input[type="password"], input[type="number"] {
+      width: 100%; padding: 8px; margin: 8px 0;
+      border-radius: 5px; border: 1px solid #ccc;
+    }
+    .section {
+      background: white; padding: 12px; margin-top: 16px;
+      border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    button {
+      background: #4CAF50; color: white; padding: 12px;
+      border: none; border-radius: 5px; width: 100%;
+      font-size: 16px; cursor: pointer; margin-top: 10px;
+    }
+    #summary { margin-top: 20px; font-weight: bold; color: #444; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Thi đua lớp học</h2>
+  <div class="section" id="loginSection">
+    <label for="username">Tên đăng nhập:</label>
+    <input type="text" id="username" placeholder="Nhập tên đăng nhập">
+    <label for="password">Mật khẩu:</label>
+    <input type="password" id="password" placeholder="Nhập mật khẩu">
+    <button onclick="login()">🔐 Đăng nhập</button>
+  </div>
+  <div class="section" id="mainApp" style="display:none;"></div>
+  <script src="main.js"></script>
+</body>
+</html>
